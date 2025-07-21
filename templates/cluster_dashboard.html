@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cluster Dashboard</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; }
+        img { margin: 10px; border: 2px solid #ccc; }
+    </style>
+</head>
+<body>
+    <h1>📊 Dashboard Phân Cụm Ảnh</h1>
+
+    <h2>1. Biểu đồ số lượng ảnh mỗi cụm</h2>
+    <img src="{{ url_for('static', filename='cluster_bar.png') }}" alt="Cluster distribution">
+
+    <h2>2. Đại diện ảnh mỗi cụm</h2>
+    {% for i in range(n_clusters) %}
+        <div style="display:inline-block; text-align:center;">
+            <p>Cluster {{ i }}</p>
+            <img src="{{ url_for('static', filename='cluster_reps/cluster_' + i|string + '.jpg') }}" width="128">
+        </div>
+    {% endfor %}
+</body>
+</html>
+

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Results</title>
+</head>
+<body>
+    <h2>Query Image</h2>
+    <img src="{{ query_path }}" width="256"><hr>
+    <h2>Similar Images</h2>
+    {% for img in results %}
+        <img src="dataset/{{ img.split('/')[-1] }}" width="256">
+    {% endfor %}
+     <div class="charts">
+        <hr>
+        <h2>Evaluation Charts</h2>
+
+        <h3>Elbow Method Plot</h3>
+        <img src="{{ url_for('static', filename='test_elbow.png') }}" width="500">
+
+        <h3>Silhouette Analysis (K=5)</h3>
+        <img src="{{ url_for('static', filename='test_silhouette_5.png') }}" width="500">
+
+        <h3>BoW Elbow Plot (ORB)</h3>
+        <img src="{{ url_for('static', filename='orb_bow_elbow.png') }}" width="500">
+    </div>
+</body>
+</html>
